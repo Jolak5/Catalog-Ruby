@@ -3,7 +3,7 @@ class Item
   attr_accessor :publish_date
 
   def initialize(publish_date)
-    id
+    @id = Random.rand(1..1000)
     @publish_date = publish_date
   end
 
@@ -17,11 +17,6 @@ class Item
     author.add_items(self) unless author.add_items.include?(self)
   end
 
-  def source=(source)
-    @source = source
-    source.add_items(self) unless source.add_items.include?(self)
-  end
-
   def label=(label)
     @label = label
     label.add_items(self) unless label.add_items.include?(self)
@@ -32,10 +27,6 @@ class Item
   end
 
   private
-
-  def id
-    Random.rand(1..1000)
-  end
 
   def can_be_archived?
     current_time = Time.now.year
