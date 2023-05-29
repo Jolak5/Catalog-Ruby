@@ -1,8 +1,8 @@
 class Author
     attr_reader :id
-    attr_accessor :author :items :first_name :last_name
+    attr_accessor :author, :items, :first_name, :last_name
 
-    def initialize(id: Random.rand(1..1000), first_name, last_name)
+    def initialize(first_name, last_name, id: Random.rand(1..1000))
         super()
         @id = id
         @items = []
