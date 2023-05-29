@@ -21,7 +21,7 @@ class Main
     loop do
       select_option
       option = gets.chomp
-      break if (option == '10')
+      break if option == '10'
 
       new_app.select_option(option)
       new_app.add_items(option)
