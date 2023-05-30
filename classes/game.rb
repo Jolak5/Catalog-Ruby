@@ -1,6 +1,7 @@
 require_relative 'item'
 
 class Game < Item
+  attr_reader :id
   attr_accessor :last_played_at
 
   def initialize(last_played_at, multiplayer, id: Random.rand(1..1000))

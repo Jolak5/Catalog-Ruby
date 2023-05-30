@@ -6,11 +6,11 @@ describe Author do
     end
 
     context 'the add_items method should add' do
-     it 'add the authors'
+        it 'add the authors'
         expect(@author.first_name).to eql ('Kayode')
-    end 
-    it 'author/s last name'
+         end 
+        it 'author/s last name'
         expect(@author.first_name).to eql ('Olatunji')
-    end 
+        end 
     end
 end
