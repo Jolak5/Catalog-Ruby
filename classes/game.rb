@@ -6,6 +6,7 @@ class Game < Item
 
   def initialize(last_played_at, multiplayer, id: Random.rand(1..1000))
     super()
+    @id = id
     @last_played_at = last_played_at
     @multiplayer = multiplayer
   end
