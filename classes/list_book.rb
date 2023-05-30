@@ -1,5 +1,6 @@
 require_relative 'book'
 require_relative 'label'
+require 'json'
 
 class ListBook
   attr_accessor :books, :labels
@@ -25,25 +26,46 @@ class ListBook
     @books.push(book)
     @labels.push(label)
     puts 'Book added'
+    store_book(book)
+    store_label(label)
+  end
+
+  def store_book(book)
+    obj = {
+      id: book.id,
+      publisher: book.publisher,
+      publish_date: book.publish_date,
+      cover_state: book.cover_state
+    }
+
+    stored_book = File.empty?('store/books.json') ? [] : JSON.parse(File.read('store/books.json'))
+    stored_book << obj
+    File.write('store/books.json', stored_book.to_json)
+  end
+
+  def store_label(label)
+    obj = {
+      id: label.id,
+      title: label.title,
+      color: label.color
+    }
+
+    stored_label = File.empty?('store/labels.json') ? [] : JSON.parse(File.read('store/labels.json'))
+    stored_label << obj
+    File.write('store/labels.json', stored_label.to_json)
   end
 
   def list_all_books
-    if @books.empty?
-      puts 'No books in the library'
-    else
-      @books.each do |book|
-        puts "Publish date: #{book.publish_date}, Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
-      end
+    @books = File.empty?('store/books.json') ? [] : JSON.parse(File.read('store/books.json'))
+    @books.each do |book|
+      puts "Publish date: #{book['publish_date']}, Publisher: #{book['publisher']}, Cover state: #{book['cover_state']}"
     end
   end
 
   def list_all_labels
-    if @labels.empty?
-      puts 'No labels in the library'
-    else
-      @labels.each do |label|
-        puts "Title: #{label.title}, Color: #{label.color}"
-      end
+    @labels = File.empty?('store/labels.json') ? [] : JSON.parse(File.read('store/labels.json'))
+    @labels.each do |label|
+      puts "Title: #{label['title']}, Color: #{label['color']}"
     end
   end
 end
