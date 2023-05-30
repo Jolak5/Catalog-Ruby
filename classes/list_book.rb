@@ -31,42 +31,41 @@ class ListBook
   end
 
   def store_book(book)
-  obj = {
-    id: book.id,
-    publisher: book.publisher,
-    publish_date: book.publish_date,
-    cover_state: book.cover_state
-  }
+    obj = {
+      id: book.id,
+      publisher: book.publisher,
+      publish_date: book.publish_date,
+      cover_state: book.cover_state
+    }
 
-  stored_book = File.size("store/books.json").zero? ? [] : JSON.parse(File.read("store/books.json"))
-  stored_book << obj
-  File.write("store/books.json", stored_book.to_json)
+    stored_book = File.empty?('store/books.json') ? [] : JSON.parse(File.read('store/books.json'))
+    stored_book << obj
+    File.write('store/books.json', stored_book.to_json)
   end
 
   def store_label(label)
-obj = {
-    id: label.id,
-    title: label.title,
-    color: label.color
-}
+    obj = {
+      id: label.id,
+      title: label.title,
+      color: label.color
+    }
 
-stored_label = File.size("store/labels.json").zero? ? [] : JSON.parse(File.read("store/labels.json"))
-stored_label << obj
-File.write("store/labels.json", stored_label.to_json)
+    stored_label = File.empty?('store/labels.json') ? [] : JSON.parse(File.read('store/labels.json'))
+    stored_label << obj
+    File.write('store/labels.json', stored_label.to_json)
   end
 
-
   def list_all_books
-       @books = File.size("store/books.json").zero? ? [] : JSON.parse(File.read("store/books.json"))
-      @books.each do |book|
-        puts "Publish date: #{book["publish_date"]}, Publisher: #{book["publisher"]}, Cover state: #{book["cover_state"]}"
-      end
+    @books = File.empty?('store/books.json') ? [] : JSON.parse(File.read('store/books.json'))
+    @books.each do |book|
+      puts "Publish date: #{book['publish_date']}, Publisher: #{book['publisher']}, Cover state: #{book['cover_state']}"
     end
+  end
 
   def list_all_labels
-    @labels = File.size("store/labels.json").zero? ? [] : JSON.parse(File.read("store/labels.json"))
-      @labels.each do |label|
-        puts "Title: #{label["title"]}, Color: #{label["color"]}"
-      end
-   end
+    @labels = File.empty?('store/labels.json') ? [] : JSON.parse(File.read('store/labels.json'))
+    @labels.each do |label|
+      puts "Title: #{label['title']}, Color: #{label['color']}"
+    end
+  end
 end
