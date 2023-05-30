@@ -1,5 +1,6 @@
 require_relative 'book'
 require_relative 'label'
+require 'json'
 
 class ListBook
   attr_accessor :books, :labels
@@ -25,7 +26,22 @@ class ListBook
     @books.push(book)
     @labels.push(label)
     puts 'Book added'
+    store_book(book)
   end
+
+  def store_book(book)
+  obj = {
+    id: book.id,
+    publisher: book.publisher,
+    publish_date: book.publish_date,
+    cover_state: book.cover_state
+  }
+
+  stored_book = File.size("store/books.json").zero? ? [] : JSON.parse(File.read("store/books.json"))
+  stored_book << obj
+  File.write("store/books.json", stored_book.to_json)
+  end
+
 
   def list_all_books
     if @books.empty?
