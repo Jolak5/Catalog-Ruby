@@ -30,7 +30,7 @@ class Item
 
   def can_be_archived?
     current_time = Time.now.year
-    published_at = publish_date.year
+    published_at = Date.parse(publish_date).year
     archived = current_time - published_at
     archived > 10
   end
