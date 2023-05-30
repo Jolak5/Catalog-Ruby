@@ -44,14 +44,11 @@ class ListBook
 
 
   def list_all_books
-    if @books.empty?
-      puts 'No books in the library'
-    else
+       @books = File.size("store/books.json").zero? ? [] : JSON.parse(File.read("store/books.json"))
       @books.each do |book|
-        puts "Publish date: #{book.publish_date}, Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
+        puts "Publish date: #{book["publish_date"]}, Publisher: #{book["publisher"]}, Cover state: #{book["cover_state"]}"
       end
     end
-  end
 
   def list_all_labels
     if @labels.empty?
