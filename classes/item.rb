@@ -9,7 +9,7 @@ class Item
 
   def genre=(genre)
     @genre = genre
-    genre.add_items(self) unless genre.add_items.include?(self)
+    genre.add_item(self) unless genre.add_item.include?(self)
   end
 
   def author=(author)
