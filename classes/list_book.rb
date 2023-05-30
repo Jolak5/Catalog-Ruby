@@ -38,14 +38,12 @@ class ListBook
   end
 
   def list_all_labels
-  if @labels.empty?
-    puts 'No labels in the library'
+    if @labels.empty?
+      puts 'No labels in the library'
     else
-        @labels.each do |label|
-            puts "Title: #{label.title}, Color: #{label.color}"
-        end
+      @labels.each do |label|
+        puts "Title: #{label.title}, Color: #{label.color}"
+      end
     end
-
-
   end
 end
