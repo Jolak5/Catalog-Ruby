@@ -27,6 +27,7 @@ class ListBook
     @labels.push(label)
     puts 'Book added'
     store_book(book)
+    store_label(label)
   end
 
   def store_book(book)
@@ -42,6 +43,18 @@ class ListBook
   File.write("store/books.json", stored_book.to_json)
   end
 
+  def store_label(label)
+obj = {
+    id: label.id,
+    title: label.title,
+    color: label.color
+}
+
+stored_label = File.size("store/labels.json").zero? ? [] : JSON.parse(File.read("store/labels.json"))
+stored_label << obj
+File.write("store/labels.json", stored_label.to_json)
+  end
+
 
   def list_all_books
        @books = File.size("store/books.json").zero? ? [] : JSON.parse(File.read("store/books.json"))
@@ -51,12 +64,9 @@ class ListBook
     end
 
   def list_all_labels
-    if @labels.empty?
-      puts 'No labels in the library'
-    else
+    @labels = File.size("store/labels.json").zero? ? [] : JSON.parse(File.read("store/labels.json"))
       @labels.each do |label|
-        puts "Title: #{label.title}, Color: #{label.color}"
+        puts "Title: #{label["title"]}, Color: #{label["color"]}"
       end
-    end
-  end
+   end
 end
