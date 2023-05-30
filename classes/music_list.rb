@@ -8,8 +8,8 @@ class MusicList
   def initialize
     @albums = []
     @genres = []
-    recover_data()
-    recover_genre()
+    recover_data
+    recover_genre
   end
 
   def list_all_genre
@@ -42,9 +42,8 @@ class MusicList
     @genres << Genre.new(name)
     puts "#{name} genre created successfully"
     puts ''
-    save()
-    save_genre()
-
+    save
+    save_genre
   end
 
   def save
