@@ -8,6 +8,8 @@ class MusicList
   def initialize
     @albums = []
     @genres = []
+    recover_data()
+    recover_genre()
   end
 
   def list_all_genre
@@ -40,5 +42,42 @@ class MusicList
     @genres << Genre.new(name)
     puts "#{name} genre created successfully"
     puts ''
+    save()
+    save_genre()
+
+  end
+
+  def save
+    albums = @albums.map { |album| { id: album.id, publish_date: album.publish_date, on_spotify: album.on_spotify } }
+    File.write('store/music.json', JSON.pretty_generate(albums))
+  end
+
+  def recover_data
+    return unless File.exist?('store/music.json')
+
+    album_store = begin
+      JSON.parse(File.read('store/music.json'))
+    rescue StandardError
+      []
+    end
+    album_load = album_store.map { |music| MusicAlbum.new(music['on_spotify'], music['publish_date']) }
+    @albums.concat(album_load) unless album_load.empty?
+  end
+
+  def save_genre
+    genres = @genres.map { |genre| { name: genre.name } }
+    File.write('store/genre.json', JSON.pretty_generate(genres))
+  end
+
+  def recover_genre
+    return unless File.exist?('store/genre.json')
+
+    genre_store = begin
+      JSON.parse(File.read('store/genre.json'))
+    rescue StandardError
+      []
+    end
+    genre_load = genre_store.map { |genre| Genre.new(genre['name']) }
+    @genres.concat(genre_load) unless genre_load.empty?
   end
 end
