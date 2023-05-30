@@ -6,7 +6,7 @@ require_relative './classes/list_book'
 class App
   def initialize
     @music = MusicList.new
-    @list_book = ListBook.new 
+    @list_book = ListBook.new
   end
 
   def select_option(option)
@@ -20,7 +20,7 @@ class App
     when '4'
       @music.list_all_genre
     when '5'
-      list_all_labels
+      @list_book.list_all_labels
     when '6'
       list_all_authors
     end
