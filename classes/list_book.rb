@@ -15,7 +15,7 @@ class ListBook
     title = gets.chomp
     puts 'Enter the color of the book: '
     color = gets.chomp
-    puts 'Enter the publish date of the book(dd/mm/yyyy): '
+    puts 'Enter the publish date of the book(Year-MM-DD): '
     publish_date = gets.chomp
     puts 'Enter the publisher of the book: '
     publisher = gets.chomp

@@ -14,22 +14,22 @@ class MusicList
 
   def list_all_genre
     puts 'No genre added' if @genres.empty?
-    @genres.each { |genre| puts "id: #{genre.id}. #{genre.name}" }
+    @genres.each { |genre| puts "Genre:  #{genre.name}" }
     puts ''
   end
 
   def list_all_music_albums
     puts 'No music added' if @albums.empty?
     @albums.each do |album|
-      puts "id: #{album.id}, Publish date: #{album.publish_date}, On spotify: #{album.on_spotify}"
+      puts "Publish date: #{album.publish_date}, On spotify: #{album.on_spotify}"
     end
     puts ''
   end
 
   def add_music_album
-    print 'Publish date:'
+    print 'Publish date (Year-MM-DD): '
     publish_date = gets.chomp
-    print 'On spotify (true,false) :'
+    print 'On spotify (true,false): '
     on_spotify = gets.chomp
 
     music_album = MusicAlbum.new(on_spotify, publish_date)
@@ -37,7 +37,7 @@ class MusicList
     puts 'Album created successfully'
     puts ''
 
-    print 'Add genre (Comedy, Horror) : '
+    print 'Add genre (Comedy, Horror): '
     name = gets.chomp
     @genres << Genre.new(name)
     puts "#{name} genre created successfully"

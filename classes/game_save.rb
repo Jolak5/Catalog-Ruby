@@ -28,7 +28,7 @@ class GameList
 
   # last_played_at, multiplayer, publish_date,
   def add_game
-    print 'Last_played_at (Year-MM-DD): '
+    print 'Last played at (Year-MM-DD): '
     last_played_at = gets.chomp
     print 'Multiplayer (state the number): '
     multiplayer = gets.chomp

@@ -76,8 +76,6 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -118,14 +116,14 @@ To run tests, run the following command: **rspec**.
 - GitHub: [@enis-memic](https://github.com/enis-memic)
 - LinkedIn: [enis-memic](https://linkedin.com/in/enis-memic)
 
-👤 **Progress2002**
+👤 **Progress**
 
 - GitHub: [@Progress2002](https://github.com/Progress2002)
 - Twitter: [@Progress_2002](https://twitter.com/Progress_2002)
 - LinkedIn: [@Progress](https://www.linkedin.com/in/progress-ezeamaka-27b114247)
 - Frontend Mentor - [@Progress2002](https://www.frontendmentor.io/profile/progress2002)
 
-👤 **kayode Olatunji**
+👤 **Kayode Olatunji**
 
 - GitHub: [@githubhandle](https://github.com/Jolak5)
 - Twitter: [@twitterhandle](https://twitter.com/I_amBabakay)
