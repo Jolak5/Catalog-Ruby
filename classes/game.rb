@@ -15,4 +15,3 @@ class Game < Item
     super || Date.today > Date.iso8601(@last_played_at).next_year(2)
   end
 end
-
