@@ -125,6 +125,12 @@ To run tests, run the following command: **rspec**.
 - LinkedIn: [@Progress](https://www.linkedin.com/in/progress-ezeamaka-27b114247)
 - Frontend Mentor - [@Progress2002](https://www.frontendmentor.io/profile/progress2002)
 
+👤 **kayode Olatunji**
+
+- GitHub: [@githubhandle](https://github.com/Jolak5)
+- Twitter: [@twitterhandle](https://twitter.com/I_amBabakay)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/olatunji-kayode/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
