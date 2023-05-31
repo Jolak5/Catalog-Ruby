@@ -13,5 +13,5 @@ describe Author do
 
   it 'Should return the correct value for the last_name attribute' do
     expect(@author.last_name).to eq('Demsew')
-  end  
+  end
 end
