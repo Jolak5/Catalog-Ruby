@@ -15,6 +15,3 @@ class Author
     item.author = self
   end
 end
-
-author = Author.new('kayode', 'Olatunji')
-puts author.last_name

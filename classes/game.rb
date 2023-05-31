@@ -16,6 +16,3 @@ class Game < Item
   end
 end
 
-game = Game.new(3, '2012-04-03', '2012-04-03')
-puts game.publish_date
-puts Time.now - (2 * 365 * 24 * 60 * 60)

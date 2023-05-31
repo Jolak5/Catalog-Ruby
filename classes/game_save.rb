@@ -14,14 +14,14 @@ class GameList
 
   def list_all_authors
     puts 'No author added' if @authors.empty?
-    @authors.each { |author| puts "id: #{author.id}. #{author.first_name} #{author.last_name}" }
+    @authors.each { |author| puts "First name: #{author.first_name}, Last name: #{author.last_name}" }
     puts ''
   end
 
   def list_all_games
     puts 'No author added' if @authors.empty?
     @games.each do |game|
-      puts "id: #{game.id}, last played: #{game.last_played_at} #{game.multiplayer} #{game.publish_date}"
+      puts "Last played: #{game.last_played_at}, Multiplayer: #{game.multiplayer}, Publish date: #{game.publish_date}"
     end
     puts ''
   end
@@ -32,7 +32,7 @@ class GameList
     last_played_at = gets.chomp
     print 'Multiplayer (state the number): '
     multiplayer = gets.chomp
-    print 'publish date(Year-MM-DD): '
+    print 'Publish date(Year-MM-DD): '
     publish_date = gets.chomp
 
     games_added = Game.new(last_played_at, multiplayer, publish_date)
